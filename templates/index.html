@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="BhoomiAI — a smart farming companion for crop care, irrigation, weather, markets and harvest planning.">
+<title>BhoomiAI | Smart Farming Companion</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#"><span class="brand-icon">🌱</span><span>BhoomiAI<small>SMART FARMING COMPANION</small></span></a>
+<div class="top-actions"><span class="language">English · తెలుగు soon</span><span class="avatar">F</span></div></header>
+<div class="shell">
+<aside class="sidebar"><div class="side-label">YOUR FARM WORKSPACE</div>
+<button class="nav active" data-target="dashboard">⌂ <span>Dashboard</span></button>
+<button class="nav" data-target="crop">🌿 <span>CropDoctor</span></button>
+<button class="nav" data-target="water">💧 <span>SmartJal</span></button>
+<button class="nav" data-target="market">🛒 <span>FarmConnect</span></button>
+<button class="nav" data-target="weather">🌦️ <span>AgriAlert</span></button>
+<button class="nav" data-target="harvest">📦 <span>HarvestGuard</span></button>
+<button class="nav" data-target="assistant">🤖 <span>AI Assistant</span></button>
+<div class="side-note"><b>Made for farmers</b><p>Simple tools to support better farming decisions, from crop care to selling.</p></div>
+</aside>
+<main>
+<section class="screen active" id="dashboard">
+<div class="welcome"><div><div class="eyebrow">WELCOME TO BHOOMIAI</div><h1>Your farm, made smarter.</h1><p>Practical support for every stage of your farming journey.</p></div><div class="date" id="date"></div></div>
+<div class="hero"><div><div class="eyebrow light">GROW WITH CONFIDENCE</div><h2>Grow better. Waste less. Earn more.</h2><p>One place for crop health, irrigation planning, weather awareness, harvest and market access.</p><button class="button white" data-go="assistant">Talk to BhoomiAI →</button></div><div class="hero-art">🌾</div></div>
+<div class="section-title"><h3>Your farming toolkit</h3><span>Six connected modules</span></div>
+<div class="module-grid">
+<article class="module" data-go="crop"><div class="module-icon">🌿</div><h4>CropDoctor</h4><p>Explore possible causes of crop symptoms.</p><b>Check crop →</b></article>
+<article class="module" data-go="water"><div class="module-icon">💧</div><h4>SmartJal</h4><p>Plan irrigation using field information.</p><b>Plan watering →</b></article>
+<article class="module" data-go="market"><div class="module-icon">🛒</div><h4>FarmConnect</h4><p>Prepare a listing for your harvest.</p><b>List produce →</b></article>
+<article class="module" data-go="weather"><div class="module-icon">🌦️</div><h4>AgriAlert</h4><p>Review weather risks and precautions.</p><b>View guidance →</b></article>
+<article class="module" data-go="harvest"><div class="module-icon">📦</div><h4>HarvestGuard</h4><p>Prepare storage and transport checklists.</p><b>Plan harvest →</b></article>
+<article class="module" data-go="assistant"><div class="module-icon">🤖</div><h4>AI Assistant</h4><p>Ask farming questions in simple language.</p><b>Ask a question →</b></article>
+</div>
+<div class="info-strip"><div><b>Prototype notice</b><p>This is an early demo. Live weather, market data, real AI diagnosis and buyer connections are not active yet.</p></div><span>🌱</span></div>
+</section>
+
+<section class="screen" id="crop"><div class="eyebrow">CROPDOCTOR</div><div class="panel"><h2>🌿 Understand your crop symptoms</h2><p>Upload a plant photo and describe what you see. This version provides a safe checklist, not an AI diagnosis.</p>
+<label class="upload">📷 <b>Choose a crop photo</b><input id="cropPhoto" type="file" accept="image/*"><img id="photoPreview" alt="Crop preview"></label>
+<div class="form-grid"><label>Crop name<input id="cropName" placeholder="e.g. Tomato"></label><label>Symptoms<input id="symptoms" placeholder="e.g. yellow spots on leaves"></label></div><button class="button" id="cropSubmit">Review symptoms</button><div class="result" id="cropResult"></div><p class="disclaimer">Confirm diagnosis with a qualified local agricultural expert before applying pesticides or other treatments.</p></div></section>
+
+<section class="screen" id="water"><div class="eyebrow">SMARTJAL</div><div class="panel"><h2>💧 Irrigation planner</h2><p>Enter field details to receive a general planning reminder. Sensor readings can be integrated later.</p><div class="form-grid three"><label>Crop<input id="irCrop" placeholder="e.g. Paddy"></label><label>Soil type<input id="soil" placeholder="e.g. clay"></label><label>Moisture reading (%)<input id="moisture" type="number" min="0" max="100" placeholder="e.g. 35"></label></div><button class="button" id="waterSubmit">Get guidance</button><div class="result" id="waterResult"></div><p class="disclaimer">Actual irrigation needs depend on crop stage, soil, local weather and field conditions.</p></div></section>
+
+<section class="screen" id="market"><div class="eyebrow">FARMCONNECT</div><div class="panel"><h2>🛒 Prepare a produce listing</h2><p>Create a sample listing. It is not published to real buyers in this version.</p><div class="form-grid three"><label>Produce<input id="produce" placeholder="e.g. Chilli"></label><label>Quantity<input id="quantity" placeholder="e.g. 500 kg"></label><label>Village / district<input id="location" placeholder="Your location"></label></div><button class="button" id="marketSubmit">Create sample listing</button><div class="result" id="marketResult"></div><div class="section-title"><h3>Market price examples</h3><span>Illustrative only</span></div><div class="price-row"><span>Tomato</span><b>Sample only — no live price</b></div><div class="price-row"><span>Rice</span><b>Connect verified market data before launch</b></div><div class="price-row"><span>Chilli</span><b>Connect verified market data before launch</b></div></div></section>
+
+<section class="screen" id="weather"><div class="eyebrow">AGRI ALERT</div><div class="panel"><h2>🌦️ Weather-aware crop protection</h2><p>Choose a weather concern to see a basic preparation checklist. Live forecasts are not connected.</p><div class="form-grid"><label>Your village / town<input id="weatherPlace" placeholder="e.g. Peddapuram"></label><label>Weather concern<select id="weatherType"><option>Heavy rainfall</option><option>High temperature</option><option>Strong winds</option><option>Dry spell</option></select></label></div><button class="button" id="weatherSubmit">Show precautions</button><div class="result" id="weatherResult"></div><p class="disclaimer">Check official local forecasts and alerts before making farm decisions.</p></div></section>
+
+<section class="screen" id="harvest"><div class="eyebrow">HARVESTGUARD</div><div class="panel"><h2>📦 Plan storage and transport</h2><p>Prepare a post-harvest checklist for your produce.</p><div class="form-grid three"><label>Crop<input id="harvestCrop" placeholder="e.g. Mango"></label><label>Quantity<input id="harvestQty" placeholder="e.g. 200 crates"></label><label>Storage need<select id="storage"><option>Choose one</option><option>Cold storage</option><option>Dry storage</option><option>Short-term holding</option></select></label></div><button class="button" id="harvestSubmit">Create checklist</button><div class="result" id="harvestResult"></div><p class="disclaimer">Storage requirements vary by crop and maturity. Confirm facility suitability before booking.</p></div></section>
+
+<section class="screen" id="assistant"><div class="eyebrow">BHOOMIAI ASSISTANT</div><div class="panel"><h2>🤖 Ask your farming assistant</h2><p>Ask about crop care, irrigation, selling, weather or storage.</p><div class="chat" id="chat"><div class="message bot">Namaste! I’m BhoomiAI. What is happening on your farm today?</div></div><form id="chatForm" class="chat-form"><input id="chatInput" placeholder="Type your farming question…" autocomplete="off"><button class="button">Send</button></form><p class="disclaimer">Starter assistant responses are general information, not professional agricultural diagnosis.</p></div></section>
+<footer>BhoomiAI · Hackathon prototype · Built for smarter farming</footer>
+</main></div>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body></html>
